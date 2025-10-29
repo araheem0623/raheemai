@@ -1,0 +1,1068 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RaheemAI - AI Virtual Assistant That Works 24/7</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #e2e8f0;
+            background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
+            background-attachment: fixed;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header & Navigation */
+        header {
+            background: rgba(15, 15, 35, 0.95);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(102, 126, 234, 0.3);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 2rem;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 0.8rem 2rem;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .nav-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: rgba(15, 15, 35, 0.9);
+            padding: 5rem 2rem;
+            text-align: center;
+            margin: 2rem auto;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(102, 126, 234, 0.3);
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #f7fafc;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            color: #cbd5e0;
+            margin-bottom: 2.5rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .primary-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1.2rem 3rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .primary-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(102, 126, 234, 0.4);
+        }
+
+        .secondary-btn {
+            background: white;
+            color: #667eea;
+            padding: 1.2rem 3rem;
+            border: 2px solid #667eea;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .secondary-btn:hover {
+            background: #667eea;
+            color: white;
+        }
+
+        .hero-note {
+            margin-top: 1.5rem;
+            color: #a0aec0;
+            font-size: 0.95rem;
+        }
+
+        /* Stats Section */
+        .stats {
+            background: rgba(15, 15, 35, 0.9);
+            padding: 4rem 2rem;
+            margin: 2rem auto;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(102, 126, 234, 0.3);
+        }
+
+        .stats h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #f7fafc;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            text-align: center;
+        }
+
+        .stat-item {
+            padding: 2rem;
+        }
+
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #f7fafc;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-description {
+            color: #cbd5e0;
+            font-size: 1rem;
+        }
+
+        /* Features Section */
+        .features {
+            background: rgba(15, 15, 35, 0.9);
+            padding: 4rem 2rem;
+            margin: 2rem auto;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(102, 126, 234, 0.3);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #f7fafc;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #cbd5e0;
+            margin-bottom: 3rem;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: rgba(26, 26, 46, 0.6);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(102, 126, 234, 0.2);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+            border-color: rgba(102, 126, 234, 0.5);
+        }
+
+        .feature-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .feature-title {
+            font-size: 1.4rem;
+            color: #f7fafc;
+            margin-bottom: 1rem;
+        }
+
+        .feature-description {
+            color: #cbd5e0;
+            line-height: 1.6;
+        }
+
+        /* How It Works */
+        .how-it-works {
+            background: rgba(15, 15, 35, 0.9);
+            padding: 4rem 2rem;
+            margin: 2rem auto;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(102, 126, 234, 0.3);
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .step-card {
+            text-align: center;
+            padding: 2rem;
+            position: relative;
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin: 0 auto 1.5rem;
+        }
+
+        .step-title {
+            font-size: 1.5rem;
+            color: #f7fafc;
+            margin-bottom: 1rem;
+        }
+
+        .step-description {
+            color: #cbd5e0;
+        }
+
+        /* Target Audience */
+        .target-audience {
+            background: rgba(15, 15, 35, 0.9);
+            padding: 4rem 2rem;
+            margin: 2rem auto;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(102, 126, 234, 0.3);
+        }
+
+        .audience-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .audience-card {
+            background: rgba(26, 26, 46, 0.6);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(102, 126, 234, 0.2);
+        }
+
+        .audience-title {
+            font-size: 1.5rem;
+            color: #f7fafc;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .audience-card ul {
+            list-style: none;
+        }
+
+        .audience-card li {
+            padding: 0.8rem 0;
+            color: #cbd5e0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .audience-card li:before {
+            content: "•";
+            color: #667eea;
+            font-size: 1.5rem;
+            position: absolute;
+            left: 0;
+        }
+
+        /* Benefits */
+        .benefits {
+            background: rgba(15, 15, 35, 0.9);
+            padding: 4rem 2rem;
+            margin: 2rem auto;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(102, 126, 234, 0.3);
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .benefit-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2.5rem;
+            border-radius: 15px;
+            transition: transform 0.3s ease;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .benefit-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .benefit-description {
+            line-height: 1.6;
+            opacity: 0.95;
+        }
+
+        /* Chat Examples */
+        .chat-examples {
+            background: rgba(15, 15, 35, 0.9);
+            padding: 4rem 2rem;
+            margin: 2rem auto;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(102, 126, 234, 0.3);
+        }
+
+        .examples-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .chat-window {
+            background: rgba(26, 26, 46, 0.8);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(102, 126, 234, 0.3);
+        }
+
+        .chat-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .chat-body {
+            padding: 1.5rem;
+            min-height: 300px;
+            background: rgba(15, 15, 35, 0.5);
+        }
+
+        .message {
+            margin-bottom: 1.5rem;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .message-ai {
+            background: rgba(102, 126, 234, 0.2);
+            padding: 1rem;
+            border-radius: 15px 15px 15px 0;
+            margin-right: 20%;
+            border: 1px solid rgba(102, 126, 234, 0.3);
+        }
+
+        .message-customer {
+            background: #667eea;
+            color: white;
+            padding: 1rem;
+            border-radius: 15px 15px 0 15px;
+            margin-left: 20%;
+        }
+
+        .message-sender {
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+            font-size: 0.9rem;
+        }
+
+        .message-time {
+            font-size: 0.75rem;
+            opacity: 0.7;
+            margin-top: 0.5rem;
+        }
+
+        /* Pricing */
+        .pricing {
+            background: rgba(15, 15, 35, 0.9);
+            padding: 4rem 2rem;
+            margin: 2rem auto;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            border: 1px solid rgba(102, 126, 234, 0.3);
+        }
+
+        .pricing-card {
+            max-width: 500px;
+            margin: 3rem auto;
+            background: rgba(26, 26, 46, 0.8);
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(102, 126, 234, 0.3);
+            border: 3px solid #667eea;
+        }
+
+        .popular-badge {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 20px;
+            display: inline-block;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .price {
+            font-size: 3.5rem;
+            font-weight: bold;
+            color: #f7fafc;
+            margin: 1rem 0;
+        }
+
+        .price-note {
+            color: #cbd5e0;
+            margin-bottom: 2rem;
+        }
+
+        .features-list {
+            text-align: left;
+            margin: 2rem 0;
+        }
+
+        .features-list li {
+            padding: 0.8rem 0;
+            color: #cbd5e0;
+            border-bottom: 1px solid rgba(102, 126, 234, 0.2);
+        }
+
+        .features-list li:before {
+            content: "✓";
+            color: #667eea;
+            font-weight: bold;
+            margin-right: 0.8rem;
+        }
+
+        /* Sign Up Form */
+        .signup-form {
+            background: rgba(15, 15, 35, 0.9);
+            padding: 4rem 2rem;
+            margin: 2rem auto;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            display: none;
+            border: 1px solid rgba(102, 126, 234, 0.3);
+        }
+
+        .signup-form.active {
+            display: block;
+        }
+
+        form {
+            max-width: 600px;
+            margin: 3rem auto;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #f7fafc;
+            font-weight: 600;
+        }
+
+        input, textarea, select {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid rgba(102, 126, 234, 0.3);
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+            background: rgba(26, 26, 46, 0.6);
+            color: #f7fafc;
+        }
+
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: #667eea;
+            background: rgba(26, 26, 46, 0.8);
+        }
+
+        textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            width: 100%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1.2rem;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(15, 15, 35, 0.9);
+            padding: 2rem;
+            margin: 2rem auto;
+            border-radius: 20px;
+            text-align: center;
+            color: #cbd5e0;
+            border: 1px solid rgba(102, 126, 234, 0.3);
+        }
+
+        /* Smooth Scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .message-ai, .message-customer {
+                margin-left: 0;
+                margin-right: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">RaheemAI</div>
+            <button class="nav-btn" onclick="scrollToForm()">Start Free Trial</button>
+        </nav>
+    </header>
+
+    <div class="container">
+        <!-- Hero Section -->
+        <section class="hero">
+            <p style="color: #667eea; font-weight: 600; margin-bottom: 0.5rem;">Limited Offer: Unlock Your 30-Day Free Trial</p>
+            <h1>AI Virtual Assistant That Works 24/7 for Your Business</h1>
+            <p>Your newest teammate isn't just a tool—it's a complete shift in how you run your business.</p>
+            <div class="cta-buttons">
+                <button class="primary-btn" onclick="scrollToForm()">Start Free Trial</button>
+                <a href="#chat-examples" class="secondary-btn">See How It Works →</a>
+            </div>
+            <div class="hero-note">
+                <p>No credit card required • 1 month free trial • Cancel anytime</p>
+            </div>
+        </section>
+
+        <!-- Stats Section -->
+        <section class="stats">
+            <h2>An AI Virtual Assistant Made for Modern Businesses Doing It All</h2>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">24/7</div>
+                    <div class="stat-label">Always Working</div>
+                    <div class="stat-description">Your AI assistant never sleeps, takes breaks, or calls in sick</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">15%</div>
+                    <div class="stat-label">Average Sales Growth</div>
+                    <div class="stat-description">Customers see increased conversions with instant, round-the-clock responses</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">99.9%</div>
+                    <div class="stat-label">Response Accuracy</div>
+                    <div class="stat-description">Handles customer inquiries with human-like precision across all channels</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="features">
+            <h2 class="section-title">Gain Back 3-4 Workdays Each Month with Your AI Assistant</h2>
+            <p class="section-subtitle">Reliable, Human-Like, and Always-On to Handle Business Admin Tasks</p>
+            <p style="text-align: center; font-size: 1.3rem; font-weight: 600; margin-bottom: 2rem; color: #f7fafc;">What Your AI Can Do:</p>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <span class="feature-badge">Available Now</span>
+                    <h3 class="feature-title">Schedule New & Returning Customers</h3>
+                    <p class="feature-description">Automatically book appointments 24/7 via your website, phone, and text.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <span class="feature-badge">Available Now</span>
+                    <h3 class="feature-title">Rescheduling & Cancellations</h3>
+                    <p class="feature-description">Automatically handles scheduling changes across all channels.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <span class="feature-badge">Available Now</span>
+                    <h3 class="feature-title">Order Taking & Processing</h3>
+                    <p class="feature-description">Takes orders with special instructions, calculates totals, and confirms details.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <span class="feature-badge">Available Now</span>
+                    <h3 class="feature-title">Customer Information Collection</h3>
+                    <p class="feature-description">Flags and collects missing customer details before appointments.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <span class="feature-badge">Available Now</span>
+                    <h3 class="feature-title">Automated Follow-Ups</h3>
+                    <p class="feature-description">Sends timely follow-ups and answers questions to keep customers engaged.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <span class="feature-badge">Available Now</span>
+                    <h3 class="feature-title">Payment Reminders</h3>
+                    <p class="feature-description">Automatically sends reminders and answers payment questions via text and phone.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- How It Works -->
+        <section class="how-it-works">
+            <h2 class="section-title">How It Works</h2>
+            <p class="section-subtitle">Get started in minutes, not weeks</p>
+            
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <h3 class="step-title">Connect Your Systems</h3>
+                    <p class="step-description">5-minute setup to integrate with your existing tools and platforms</p>
+                </div>
+                
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <h3 class="step-title">Train Your Agent</h3>
+                    <p class="step-description">Customize responses and teach your AI about your business</p>
+                </div>
+                
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <h3 class="step-title">Go Live</h3>
+                    <p class="step-description">Start automating and watch your efficiency soar</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Target Audience -->
+        <section class="target-audience">
+            <h2 class="section-title">Help Where You Need It Most</h2>
+            <p class="section-subtitle">Your Newest Teammate Helps All Sides of the Business</p>
+            
+            <div class="audience-grid">
+                <div class="audience-card">
+                    <h3 class="audience-title">Business Owners</h3>
+                    <ul>
+                        <li>Focus on growth strategy instead of phone calls</li>
+                        <li>Never miss revenue from after-hours inquiries</li>
+                        <li>Scale operations without hiring more staff</li>
+                    </ul>
+                </div>
+                
+                <div class="audience-card">
+                    <h3 class="audience-title">Operations Managers</h3>
+                    <ul>
+                        <li>Reduce scheduling conflicts and errors</li>
+                        <li>Track performance metrics in real-time</li>
+                        <li>Streamline workflows across all channels</li>
+                    </ul>
+                </div>
+                
+                <div class="audience-card">
+                    <h3 class="audience-title">Customer Service Teams</h3>
+                    <ul>
+                        <li>Handle complex issues instead of routine tasks</li>
+                        <li>Deliver better service with more time per customer</li>
+                        <li>Reduce burnout from repetitive work</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Benefits -->
+        <section class="benefits">
+            <h2 class="section-title">Evolve Your Business With AI</h2>
+            
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <h3 class="benefit-title">Win Back Hours Every Week</h3>
+                    <p class="benefit-description">Reclaim 3-4 workdays every month, giving your team time to focus on business growth and customer care.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <h3 class="benefit-title">Deliver 24/7 Customer Support</h3>
+                    <p class="benefit-description">Customers get help whenever they need without long waits, missed calls, or voicemail tag.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <h3 class="benefit-title">Know What's Working</h3>
+                    <p class="benefit-description">Track exactly where appointments and orders are coming from so you can double down on what's working.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <h3 class="benefit-title">Empower, Not Replace, Your Team</h3>
+                    <p class="benefit-description">AI works alongside your team, not in place of them so your staff can do more of what they love.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Chat Examples -->
+        <section class="chat-examples" id="chat-examples">
+            <h2 class="section-title">See Your AI Assistant in Action</h2>
+            <p class="section-subtitle">Real examples of how RaheemAI keeps your customers engaged and informed</p>
+            
+            <div class="examples-grid">
+                <!-- Appointment Reminders -->
+                <div class="chat-window">
+                    <div class="chat-header">Appointment Reminders</div>
+                    <div class="chat-body">
+                        <div class="message">
+                            <div class="message-ai">
+                                <div class="message-sender">RaheemAI</div>
+                                <div>Hi Sarah! This is a friendly reminder about your appointment tomorrow at 2:00 PM with Dr. Smith. Reply CONFIRM to confirm or RESCHEDULE if you need to change it.</div>
+                                <div class="message-time">Today 3:45 PM</div>
+                            </div>
+                        </div>
+                        
+                        <div class="message">
+                            <div class="message-customer">
+                                <div class="message-sender">Customer</div>
+                                <div>CONFIRM</div>
+                                <div class="message-time">Today 3:47 PM</div>
+                            </div>
+                        </div>
+                        
+                        <div class="message">
+                            <div class="message-ai">
+                                <div class="message-sender">RaheemAI</div>
+                                <div>Perfect! Your appointment is confirmed for tomorrow at 2:00 PM. See you then! 🎯</div>
+                                <div class="message-time">Today 3:47 PM</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Order Updates -->
+                <div class="chat-window">
+                    <div class="chat-header">Order Updates</div>
+                    <div class="chat-body">
+                        <div class="message">
+                            <div class="message-ai">
+                                <div class="message-sender">RaheemAI</div>
+                                <div>Great news, Mike! Your order #4521 is ready for pickup. We're open until 9 PM today. Need directions or have questions?</div>
+                                <div class="message-time">Today 1:20 PM</div>
+                            </div>
+                        </div>
+                        
+                        <div class="message">
+                            <div class="message-customer">
+                                <div class="message-sender">Customer</div>
+                                <div>What time can I pick it up?</div>
+                                <div class="message-time">Today 1:25 PM</div>
+                            </div>
+                        </div>
+                        
+                        <div class="message">
+                            <div class="message-ai">
+                                <div class="message-sender">RaheemAI</div>
+                                <div>You can pick it up anytime before 9 PM today! We're located at 123 Main St. Looking forward to seeing you!</div>
+                                <div class="message-time">Today 1:25 PM</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Payment Reminders -->
+                <div class="chat-window">
+                    <div class="chat-header">Payment Reminders</div>
+                    <div class="chat-body">
+                        <div class="message">
+                            <div class="message-ai">
+                                <div class="message-sender">RaheemAI</div>
+                                <div>Hi Jessica! Your payment of $85 for invoice #2891 is due in 3 days. Would you like to pay now or need an extension?</div>
+                                <div class="message-time">Yesterday 10:00 AM</div>
+                            </div>
+                        </div>
+                        
+                        <div class="message">
+                            <div class="message-customer">
+                                <div class="message-sender">Customer</div>
+                                <div>Can I pay now?</div>
+                                <div class="message-time">Yesterday 10:15 AM</div>
+                            </div>
+                        </div>
+                        
+                        <div class="message">
+                            <div class="message-ai">
+                                <div class="message-sender">RaheemAI</div>
+                                <div>Absolutely! Here's your secure payment link: pay.raheemai.com/inv2891. Let me know if you need any help!</div>
+                                <div class="message-time">Yesterday 10:15 AM</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pricing -->
+        <section class="pricing">
+            <h2 class="section-title">The Future of Business Is Here, and It's Powered by AI.</h2>
+            <p class="section-subtitle">Once you have your AI assistant, you won't be able to imagine running your business without it.</p>
+            
+            <div class="pricing-card">
+                <div class="popular-badge">Most Popular</div>
+                <h3 style="font-size: 1.5rem; color: #f7fafc; margin-bottom: 0.5rem;">Limited Time Offer</h3>
+                <h4 style="font-size: 1.8rem; color: #667eea; margin-bottom: 1rem;">Start with 1 Month Free</h4>
+                <p style="color: #cbd5e0; margin-bottom: 2rem;">Try all features risk-free. No credit card required for trial.</p>
+                
+                <div class="price">$199<span style="font-size: 1.5rem; color: #cbd5e0;">/month</span></div>
+                <p class="price-note">after free trial</p>
+                
+                <h4 style="text-align: left; margin-bottom: 1rem; color: #f7fafc;">Everything You Need</h4>
+                <ul class="features-list">
+                    <li>All automation features included</li>
+                    <li>Unlimited conversations</li>
+                    <li>Multi-channel support</li>
+                    <li>Analytics dashboard</li>
+                    <li>Priority email support</li>
+                    <li>Integration with major platforms</li>
+                    <li>Custom AI training</li>
+                    <li>Advanced reporting</li>
+                </ul>
+                
+                <button class="primary-btn" onclick="scrollToForm()">Start Free Trial</button>
+                <p style="margin-top: 1rem; color: #a0aec0; font-size: 0.9rem;">No credit card required • Cancel anytime • Full access during trial</p>
+            </div>
+        </section>
+
+        <!-- Sign Up Form -->
+        <section class="signup-form" id="signup-form">
+            <h2 class="section-title">Start Your Free Trial Today</h2>
+            <p class="section-subtitle">No credit card required • Get started in minutes</p>
+            
+            <form id="contact-form" onsubmit="handleSubmit(event)">
+                <div class="form-group">
+                    <label for="name">Full Name *</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email Address *</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone">Phone Number *</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="company">Company Name *</label>
+                    <input type="text" id="company" name="company" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="business-type">Business Type *</label>
+                    <select id="business-type" name="business-type" required>
+                        <option value="">Select your business type</option>
+                        <option value="healthcare">Healthcare</option>
+                        <option value="retail">Retail</option>
+                        <option value="restaurant">Restaurant</option>
+                        <option value="services">Professional Services</option>
+                        <option value="ecommerce">E-commerce</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Tell us about your needs (Optional)</label>
+                    <textarea id="message" name="message" placeholder="What challenges are you looking to solve with AI?"></textarea>
+                </div>
+                
+                <button type="submit" class="submit-btn">Start My Free Trial</button>
+            </form>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <p>&copy; 2025 RaheemAI. All rights reserved.</p>
+            <p style="margin-top: 0.5rem;">Transforming businesses with intelligent automation.</p>
+        </footer>
+    </div>
+
+    <script>
+        function scrollToForm() {
+            const form = document.getElementById('signup-form');
+            form.classList.add('active');
+            form.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        function handleSubmit(event) {
+            event.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(event.target);
+            const name = formData.get('name');
+            const email = formData.get('email');
+            const phone = formData.get('phone');
+            const company = formData.get('company');
+            const businessType = formData.get('business-type');
+            const message = formData.get('message');
+            
+            // Create email body
+            const emailSubject = encodeURIComponent('New RaheemAI Free Trial Sign Up');
+            const emailBody = encodeURIComponent(
+                `New Free Trial Sign Up\n\n` +
+                `Name: ${name}\n` +
+                `Email: ${email}\n` +
+                `Phone: ${phone}\n` +
+                `Company: ${company}\n` +
+                `Business Type: ${businessType}\n` +
+                `Message: ${message || 'N/A'}\n\n` +
+                `---\n` +
+                `Submitted from RaheemAI Website`
+            );
+            
+            // Open email client
+            window.location.href = `mailto:araheem0623@gmail.com?subject=${emailSubject}&body=${emailBody}`;
+            
+            // Show success message
+            setTimeout(() => {
+                alert('Thank you for signing up! Your email client will open to send us your information. We\'ll contact you shortly to set up your free trial.');
+                
+                // Reset form
+                event.target.reset();
+                
+                // Scroll to top
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }, 500);
+        }
+
+        // Add smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
